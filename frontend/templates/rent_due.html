@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Rent Due Reminder</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+
+<h2>Rent Due Reminder</h2>
+
+<form method="POST">
+
+<input type="text" name="tenant" placeholder="Tenant Name" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="text" name="house" placeholder="House Name" required>
+
+<input type="number" name="amount" placeholder="Rent Amount" required>
+
+<input type="date" name="due_date" required>
+
+<select name="status">
+<option>Pending</option>
+<option>Paid</option>
+</select>
+
+<button type="submit">Add Reminder</button>
+
+</form>
+
+<br><br>
+
+<h3>Rent Records</h3>
+
+<table border="1" width="100%">
+
+<tr>
+<th>Tenant</th>
+<th>Email</th>
+<th>House</th>
+<th>Rent</th>
+<th>Due Date</th>
+<th>Status</th>
+</tr>
+
+{% for r in rents %}
+<tr>
+<td>{{r["tenant_name"]}}</td>
+<td>{{r["email"]}}</td>
+<td>{{r["house_name"]}}</td>
+<td>{{r["rent_amount"]}}</td>
+<td>{{r["due_date"]}}</td>
+<td>{{r["status"]}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

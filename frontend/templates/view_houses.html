@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+
+<h1>Available Houses</h1>
+
+<table>
+
+<tr>
+<th>House</th>
+<th>Place</th>
+<th>Price</th>
+<th>Rooms</th>
+</tr>
+
+{% for house in houses %}
+
+<tr>
+<td>{{house.house_name}}</td>
+<td>{{house.place}}</td>
+<td>{{house.price}}</td>
+<td>{{house.rooms}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>

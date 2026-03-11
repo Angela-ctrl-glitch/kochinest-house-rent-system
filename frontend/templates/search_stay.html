@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Search Houses</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h2>Search Houses in Kochi</h2>
+
+<form method="POST">
+
+<input type="text" name="place" placeholder="Enter Area (Example: Kakkanad)" required>
+
+<button type="submit">Search</button>
+
+</form>
+
+{% if stays is not none %}
+
+<h3>Available Houses</h3>
+
+<table>
+
+<tr>
+
+<th>Image</th>
+<th>Area</th>
+<th>Stay Type</th>
+<th>BHK</th>
+<th>Monthly Rent</th>
+<th>Furnishing</th>
+<th>Status</th>
+
+</tr>
+
+{% for i,row in stays.iterrows() %}
+
+<tr>
+
+<td>
+<img src="{{row['Image_URL']}}" width="120">
+</td>
+
+<td>{{row["Area"]}}</td>
+
+<td>{{row["Stay_Type"]}}</td>
+
+<td>{{row["BHK"]}}</td>
+
+<td>{{row["Monthly_Rent"]}}</td>
+
+<td>{{row["Furnishing"]}}</td>
+
+<td>{{row["Status"]}}</td>
+ 
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endif %}
+
+</body>
+
+</html>
